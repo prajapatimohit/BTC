@@ -20,9 +20,8 @@ WHERE
 f.value:address is not null
 
 {% if is_incremental() %}
-AND
-    tx.BLOCK_TIMESTAMP > (SELECT MAX(tx.BLOCK_TIMESTAMP) FROM {{ this }})
-{% endif %} 
+    AND tx.block_timestamp >= (SELECT MAX(block_timestamp) FROM {{ this }})
+{% endif %}
 )
 
 SELECT
