@@ -2,6 +2,7 @@ WITH WHALE AS (
 
 
 SELECT
+
 output_address,
 SUM(output_value) AS total_sent,
 COUNT(*) as tx_count
@@ -15,6 +16,7 @@ order by total_sent desc
 )
 
 SELECT 
+
 output_address,
 total_sent,
 tx_count,
